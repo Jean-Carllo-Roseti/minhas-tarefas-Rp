@@ -1,6 +1,6 @@
 import FiltroCard from '../../components/FiltroCard'
 
-import * as S from './style'
+import * as S from './styles'
 
 export const BarraLateral = () => (
   <S.Aside>
