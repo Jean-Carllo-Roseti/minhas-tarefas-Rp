@@ -1,20 +1,24 @@
 import styled from 'styled-components'
 import variaveis from '../../styles/variaveis'
 
+import * as enums from '../../utils/enums/Tarefa'
+
 type tagProps = {
-  prioridade?: string
-  status?: string
+  prioridade?: enums.Prioridade
+  status?: enums.Status
+  parametro: 'status' | 'prioridade'
 }
 
 function retornaCorFundo(props: tagProps): string {
-  if ('status' in props) {
-    if (props.status === 'pendente') return variaveis.amarelo
-    if (props.status === 'concluida') return variaveis.verde
-  } else if ('prioridade' in props) {
-    if (props.prioridade === 'urgente') return variaveis.vermelho
-    if (props.prioridade === 'importante') return variaveis.amarelo2
+  if (props.parametro === 'prioridade') {
+    if (props.prioridade === enums.Prioridade.URGENTE) return variaveis.vermelho
+    if (props.prioridade === enums.Prioridade.iMPORTANTE)
+      return variaveis.amarelo2
+  } else {
+    if (props.status === enums.Status.PENDENTE) return variaveis.amarelo
+    if (props.status === enums.Status.CONCLUIDA) return variaveis.verde
   }
-  return '#ccc'
+  return enums.Prioridade.NORMAL
 }
 
 export const Card = styled.div`
