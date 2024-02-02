@@ -57,10 +57,10 @@ const Formulario = () => {
                 onChange={(evento) =>
                   setPrioridade(evento.target.value as enums.Prioridade)
                 }
-                id="{proridade}"
+                id={prioridade}
                 defaultChecked={prioridade === enums.Prioridade.NORMAL}
               />{' '}
-              <label htmlFor="{prioridade}">{prioridade}</label>
+              <label htmlFor={prioridade}>{prioridade}</label>
             </Opcao>
           ))}
         </Opcoes>
